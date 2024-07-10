@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
+}
+
+group = 'net.dazay'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.xerial:sqlite-jdbc:3.36.0'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'net.dazay.Main'
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('ZooControl')
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'net.dazay.Main'
+    }
+}
